@@ -1,0 +1,31 @@
+{
+  "name": "dashboard-sass",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "browserslist": [
+    "cover 99.5%"
+  ],
+  "devDependencies": {
+    "vite": "^8.0.16"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "animejs": "^4.4.1",
+    "autoprefixer": "^10.5.0",
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "fast-glob": "^3.3.3",
+    "imagemin": "^9.0.1",
+    "imagemin-webp": "^8.0.0",
+    "postcss-sort-media-queries": "^6.6.2",
+    "sass": "^1.100.0",
+    "sharp": "^0.35.0",
+    "svgo": "^4.0.1",
+    "vite-plugin-image-optimizer": "^2.0.3"
+  }
+}
