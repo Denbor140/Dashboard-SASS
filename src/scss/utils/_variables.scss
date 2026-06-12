@@ -60,3 +60,29 @@ $easings: (
   'fast': 300ms ease,
   'slow': 600ms ease,
 );
+
+// Button
+$btn-padding-x: 12px !default;
+$btn-padding-y: 8px !default;
+$btn-layer-min-width: 32px !default;
+$btn-layer-min-height: 32px !default;
+$btn-layer-spacing: 4px !default;
+$btn-layer-border-radius: 12px !default;
+
+$btn-text-size: 14px !default;
+$btn-text-weight: 500 !default;
+$btn-line-height: 1.43 !default;
+$btn-text-spacing: 0.04em !default;
+$btn-text-color: #fafafb !default;
+
+$btn-types: (
+  primary,
+  secondary,
+  default,
+  danger,
+  warning,
+  success,
+  info,
+  transperent,
+  frame
+);

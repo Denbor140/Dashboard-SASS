@@ -1,0 +1,37 @@
+@use '../../utils/variables' as v;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$btn-layer-spacing;
+
+  min-width: v.$btn-layer-min-width;
+  min-height: v.$btn-layer-min-height;
+  padding: v.$btn-padding-x v.$btn-padding-y;
+
+  color: v.$btn-text-color;
+  border-radius: v.$btn-layer-border-radius;
+
+  transition-property: backgorund-color, color, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  font: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+
+  .btn-inner {
+    font-size: v.$btn-text-size;
+    font-weight: v.$btn-text-weight;
+    line-height: v.$btn-line-height;
+    letter-spacing: v.$btn-text-spacing;
+  }
+
+  .btn-icon {
+    fill: currentColor;
+  }
+}

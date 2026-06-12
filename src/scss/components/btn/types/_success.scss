@@ -1,0 +1,24 @@
+@use 'sass:color';
+@use 'sass:list';
+@use '../../../utils/variables' as v;
+
+@if list.index(v.$btn-types, success) {
+  .btn--success {
+    background-color: #82c43c;
+
+    &:active {
+      background-color: color.scale(#82c43c, $lightness: -10%);
+    }
+
+    @media (hover: hover) {
+      &:hover,
+      &:focus {
+        background-color: color.scale(#82c43c, $lightness: 10%);
+      }
+    }
+
+    &[disabled] {
+      background-color: #b5b5be;
+    }
+  }
+}
