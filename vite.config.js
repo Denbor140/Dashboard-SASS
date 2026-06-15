@@ -17,6 +17,7 @@ export default defineConfig({
       png: { quality: 86 },
       jpeg: { quality: 86 },
       jpg: { quality: 86 },
+      svg: false,
     }),
     {
       ...imagemin(['./src/img/**/*.{jpg,png,jpeg}'], {
