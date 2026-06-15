@@ -6,18 +6,17 @@ import glob from 'fast-glob';
 import { fileURLToPath } from 'url';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 export default defineConfig({
+  base: '/Dashboard-SASS/',
+
   plugins: [
     ViteImageOptimizer({
-      png: {
-        quality: 86,
-      },
-      jpeg: {
-        quality: 86,
-      },
-      jpg: {
-        quality: 86,
-      },
+      png: { quality: 86 },
+      jpeg: { quality: 86 },
+      jpg: { quality: 86 },
     }),
     {
       ...imagemin(['./src/img/**/*.{jpg,png,jpeg}'], {
@@ -26,9 +25,19 @@ export default defineConfig({
       }),
       apply: 'serve',
     },
+    {
+      name: 'fix-svg-paths',
+      transformIndexHtml(html) {
+        return html.replace(
+          /\.\/src\/img\/icons\.svg/g,
+          '/Dashboard-SASS/assets/icons.svg'
+        );
+      },
+    },
   ],
+
   build: {
-    minify: false, // disable minification
+    minify: false,
     rollupOptions: {
       input: Object.fromEntries(
         glob
@@ -41,7 +50,6 @@ export default defineConfig({
             fileURLToPath(new URL(file, import.meta.url)),
           ])
       ),
-      // output unminified CSS file
       output: {
         assetFileNames: 'assets/[name].[ext]',
       },
