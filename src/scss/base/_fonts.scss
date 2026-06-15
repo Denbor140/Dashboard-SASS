@@ -6,8 +6,8 @@ $fonts: var.$font-weights;
   @font-face {
     font-family: 'Montserrat';
     src:
-      url('/src/fonts/Montserrat-#{$key}.woff2') format('woff 2'),
-      url('/src/fonts/Montserrat-#{$key}.woff') format('woff');
+      url('../../fonts/Montserrat-#{$key}.woff2') format('woff 2'),
+      url('../../fonts/Montserrat-#{$key}.woff') format('woff');
     font-weight: $value;
     font-style: normal;
     font-display: swap;

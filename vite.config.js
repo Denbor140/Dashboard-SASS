@@ -5,18 +5,19 @@ import { defineConfig } from 'vite';
 import glob from 'fast-glob';
 import { fileURLToPath } from 'url';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-import purgecss from '@fullhuman/postcss-purgecss';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-  base: '/Dashboard-SASS/',
   plugins: [
     ViteImageOptimizer({
-      png: { quality: 86 },
-      jpeg: { quality: 86 },
-      jpg: { quality: 86 },
+      png: {
+        quality: 86,
+      },
+      jpeg: {
+        quality: 86,
+      },
+      jpg: {
+        quality: 86,
+      },
     }),
     {
       ...imagemin(['./src/img/**/*.{jpg,png,jpeg}'], {
@@ -26,19 +27,8 @@ export default defineConfig({
       apply: 'serve',
     },
   ],
-
-  css: {
-    postcss: {
-      plugins: [
-        purgecss({
-          content: ['./**/*.html'],
-        }),
-      ],
-    },
-  },
-
   build: {
-    minify: false,
+    minify: false, // disable minification
     rollupOptions: {
       input: Object.fromEntries(
         glob
@@ -51,6 +41,7 @@ export default defineConfig({
             fileURLToPath(new URL(file, import.meta.url)),
           ])
       ),
+      // output unminified CSS file
       output: {
         assetFileNames: 'assets/[name].[ext]',
       },
