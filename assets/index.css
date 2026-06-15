@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Montserrat";
-  src: url("/assets/Montserrat-Regular.woff2") format("woff 2"), url("/assets/Montserrat-Regular.woff") format("woff");
+  src: url("/Dashboard-SASS/assets/Montserrat-Regular.woff2") format("woff 2"), url("/Dashboard-SASS/assets/Montserrat-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("/assets/Montserrat-Medium.woff2") format("woff 2"), url("/assets/Montserrat-Medium.woff") format("woff");
+  src: url("/Dashboard-SASS/assets/Montserrat-Medium.woff2") format("woff 2"), url("/Dashboard-SASS/assets/Montserrat-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -21,7 +21,7 @@
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("/assets/Montserrat-Bold.woff2") format("woff 2"), url("/assets/Montserrat-Bold.woff") format("woff");
+  src: url("/Dashboard-SASS/assets/Montserrat-Bold.woff2") format("woff 2"), url("/Dashboard-SASS/assets/Montserrat-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
