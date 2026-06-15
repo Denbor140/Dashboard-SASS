@@ -17,7 +17,22 @@ export default defineConfig({
       png: { quality: 86 },
       jpeg: { quality: 86 },
       jpg: { quality: 86 },
-      svg: false,
+      svg: {
+        plugins: [
+          {
+            name: 'preset-default',
+            params: {
+              overrides: {
+                removeHiddenElems: false,
+                cleanupIds: false,
+                inlineStyles: false,
+                removeUselessDefs: false,
+              },
+            },
+          },
+        ],
+      },
+      exclude: /icons\.svg$/i, // ← виключи спрайт
     }),
     {
       ...imagemin(['./src/img/**/*.{jpg,png,jpeg}'], {
