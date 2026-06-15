@@ -1,43 +1,49 @@
-import imagemin from "imagemin";
-import imageminWebp from "imagemin-webp";
-import path from "path";
-import { defineConfig } from "vite";
-import glob from "fast-glob";
-import { fileURLToPath } from "url";
-import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
-import purgecss from "@fullhuman/postcss-purgecss";
+import imagemin from 'imagemin';
+import imageminWebp from 'imagemin-webp';
+import path from 'path';
+import { defineConfig } from 'vite';
+import glob from 'fast-glob';
+import { fileURLToPath } from 'url';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import purgecss from '@fullhuman/postcss-purgecss';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 export default defineConfig({
+  base: '/Dashboard-SASS/',
   plugins: [
     ViteImageOptimizer({
-      png: {
-        quality: 86,
-      },
-      jpeg: {
-        quality: 86,
-      },
-      jpg: {
-        quality: 86,
-      },
+      png: { quality: 86 },
+      jpeg: { quality: 86 },
+      jpg: { quality: 86 },
     }),
     {
-      ...imagemin(["./src/img/**/*.{jpg,png,jpeg}"], {
-        destination: "./src/img/webp/",
+      ...imagemin(['./src/img/**/*.{jpg,png,jpeg}'], {
+        destination: './src/img/webp/',
         plugins: [imageminWebp({ quality: 86 })],
       }),
-      apply: "serve",
+      apply: 'serve',
     },
-    purgecss({
-      content: ["./**/*.html"],
-    }),
   ],
+
+  css: {
+    postcss: {
+      plugins: [
+        purgecss({
+          content: ['./**/*.html'],
+        }),
+      ],
+    },
+  },
+
   build: {
-    minify: false, // disable minification
+    minify: false,
     rollupOptions: {
       input: Object.fromEntries(
         glob
-          .sync(["./*.html", "./pages/**/*.html"])
-          .map((file) => [
+          .sync(['./*.html', './pages/**/*.html'])
+          .map(file => [
             path.relative(
               __dirname,
               file.slice(0, file.length - path.extname(file).length)
@@ -45,9 +51,8 @@ export default defineConfig({
             fileURLToPath(new URL(file, import.meta.url)),
           ])
       ),
-      // output unminified CSS file
       output: {
-        assetFileNames: "assets/[name].[ext]",
+        assetFileNames: 'assets/[name].[ext]',
       },
     },
   },
